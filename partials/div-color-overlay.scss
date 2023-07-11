@@ -1,0 +1,44 @@
+/*** Div Color Overlay ***/
+
+/* Creates a ::before psuedo element which covers the entire div and sets the opacity and color 
+*/
+
+/*** WARNING ***/ 
+
+/* This will set the position value of your div to relative */ 
+
+@mixin divColorOverlay($overlay-color: black, $overlay-opacity: 50%, $z-index: 1) {
+    position: relative;
+    &::before {
+        content: '';
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $overlay-color;
+        opacity: $overlay-opacity; 
+        z-index: $z-index;
+    }
+}
+ 
+/*** How To Use ***/
+
+/* Add one of the following declarations to your rule set for the div you want to add the overlay to and change each property accordingly
+
+    /* Using Default Values 
+
+    @include divColorOverlay;
+
+    /* Using Specified Argments
+
+    @include divColorOverlay(COLOR, OPACITY, Z-INDEX);
+
+    /* Argument Options
+
+    * COLOR - Set the color of the overlay by changing the value of the background-color proeprty.  This argument accepts all CSS Legal Color Values.
+
+    * OPACITY - Sets the opacity of the overlay by changing the value of the opacity property.  This argument accepts any vcalue from 0.0 - 1.0.  The lower the value, the more transparent the overlay will be.
+
+    * Z-INDEX - Sets the z-index of the overlay by changing the value of the z-index property.  This argument accepts Keyword values, <interger> values, and Global values.
+*/

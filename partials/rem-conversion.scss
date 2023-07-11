@@ -1,0 +1,37 @@
+/*** REM Conversion ***/
+
+/* Takes a font-size <length> value and converts it to a REM value.   
+*/
+
+@use 'sass:math';
+@use 'sass:list';
+
+// REM Conversion
+
+$html-font-size: 16px;
+
+@function stripUnit($value) {
+    @return math.div($value, ($value * 0 + 1));
+} 
+
+@function rem($pxValue) {
+    $finished: #{math.div(stripUnit($pxValue),stripUnit($html-font-size))}rem;
+    @return $finished;
+}
+
+/*** How To Use ***/
+
+/* Add the declaration font-size: rem(VALUE), where VALUE is the value that you would like converted to REM.
+    
+    /* Examples
+
+    Convert with no value
+    font-size rem(420);
+
+    * Convert px value
+    font-size: rem(69px);
+
+    * Convert em value 
+    font-size: rem(42em);
+
+*/

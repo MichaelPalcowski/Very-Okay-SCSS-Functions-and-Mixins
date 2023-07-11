@@ -1,4 +1,4 @@
-/*** Mixins Start ***
+/*** Functions and Mixins Start ***
 
 /**
     * Modify each file to fit your needs
@@ -6,8 +6,8 @@
 */
 
 
-@import 'mixins/rem-conversion';
-@import 'mixins/div-color-overlay';
+@import 'partials/functions/rem-conversion';
+@import 'partials/mixins/div-color-overlay';
 
 /*** Options ***/ 
 
